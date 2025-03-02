@@ -1,8 +1,10 @@
-import { createWebHistory, createRouter } from 'vue-router'
+import { createWebHashHistory, createRouter } from 'vue-router'
 
 import ArticleList from './components/ArticleList.vue'
 import HomePage from './components/HomePage.vue'
 import DetailPage from './components/DetailPage.vue'
+import Author from './components/AuthorSection.vue'
+import Comment from './components/CommentSection.vue'
 
 const routes = [
   {
@@ -10,17 +12,31 @@ const routes = [
     component: ArticleList,
   },
   {
-    path: '/home',
+    path: '/detail/:id',
+    component: DetailPage,
+    children: [
+      {
+        path: 'author',
+        component: Author,
+      },
+      {
+        path: 'comment',
+        component: Comment,
+      },
+    ],
+  },
+  {
+    path: '/',
     component: HomePage,
   },
   {
-    path: '/detail',
-    component: DetailPage,
+    path: '/:anything(.*)',
+    component: HomePage,
   },
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 })
 

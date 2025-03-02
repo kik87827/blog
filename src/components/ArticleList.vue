@@ -1,7 +1,7 @@
 <template>
   <div style="text-align: center">
     <div v-for="(item, index) in blogArticle" :key="index">
-      <h5>{{ item.title }}</h5>
+      <h5 @click="$router.push(`/detail/${index}`)">{{ item.title }}</h5>
       <p>{{ item.date }}</p>
     </div>
     <!-- <div>

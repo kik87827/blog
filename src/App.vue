@@ -6,7 +6,7 @@
     <router-link to="/home">홈</router-link>
   </div>
 
-  <router-view :blogArticle="blogArticle"> </router-view>
+  <router-view :blogArticle="blogArticle" class="mt-5"> </router-view>
 </template>
 
 <script>
